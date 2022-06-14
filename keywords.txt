@@ -1,0 +1,13 @@
+RBF KEYWORD1
+setNeuronsNumber KEYWORD2
+setLearningRate KEYWORD2
+predict KEYWORD2
+train KEYWORD2
+setDebugger KEYWORD2
+getWeight KEYWORD2
+getCenter KEYWORD2
+getVariance KEYWORD2
+printWeights KEYWORD2
+setWeight KEYWORD2
+setCenter KEYWORD2
+setVariance KEYWORD2

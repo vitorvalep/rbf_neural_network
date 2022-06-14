@@ -10,40 +10,45 @@ using namespace std;
 class RBF{
     private:
         const double e = 2.718281828459045;
+        bool debugger_flag = 0;
+        
         unsigned int neurons;
+        double neta = 1; 
         double* weights = nullptr;
         double* centers = nullptr;
         double* variances = nullptr;
-        unsigned int activation_function;
+        //unsigned int activation_function;
+        //metodos privados
         inline double gaussiana(double center, double variance, double x);
-        inline double triangulo(double center, double wideness, double x);
         void clear();
 
 
 
     public:
-        void setNeuronsNumber(unsigned int n);
-
-        inline void setActivationFunction(unsigned int n){activation_function = n;}
-
+        
         //constructor
         inline RBF(){setNeuronsNumber(1);}
         inline RBF(unsigned int n){setNeuronsNumber(n);}
         //Destructor
         inline ~RBF(){clear();}
-        //fun��es de consulta
+        
+        //metodos principais
+        void setNeuronsNumber(unsigned int number);
+        void setLearningRate(double learningRate);
+        double predict(double input);
+        void train(double input, double h);
+        inline void setDebugger(bool flag);
+        
+
+        //metodos de consulta
         double getWeight(unsigned int i);
         double getCenter(unsigned int i);
         double getVariance(unsigned int i);
-        //
-        inline void setWeight(unsigned int i, double value){weights[i] = value;}
-        inline void setCenter(unsigned int i, double value){centers[i] = value;}
-        inline void setVariance(unsigned int i, double value){variances[i] = value;}
-        //void create();
-        //void predict();
-        //void train();
-        //void recreate();
-
+        void printWeights();
+        //metodos de escrita
+        void setWeight(unsigned int i, double value);
+        void setCenter(unsigned int i, double value);
+        void setVariance(unsigned int i, double value);
 };
 
 #endif
